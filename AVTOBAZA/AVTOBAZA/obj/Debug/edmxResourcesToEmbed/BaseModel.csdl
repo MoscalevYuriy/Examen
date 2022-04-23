@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AvtobazaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="avtorizacia">
+    <Key>
+      <PropertyRef Name="id_polzovatelya" />
+    </Key>
+    <Property Name="id_polzovatelya" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="CatType">
+    <Key>
+      <PropertyRef Name="IdType" />
+    </Key>
+    <Property Name="IdType" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CarType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Zayavka">
+    <Key>
+      <PropertyRef Name="IdZayavki" />
+    </Key>
+    <Property Name="IdZayavki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIOzakazchika" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelephoneNumber" Type="Int32" Nullable="false" />
+    <Property Name="CarType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Start" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Finish" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountPasazhirov" Type="Int32" />
+    <Property Name="MassaGruza" Type="Int32" />
+  </EntityType>
+  <EntityType Name="activeZayavki">
+    <Key>
+      <PropertyRef Name="FIOzakazchika" />
+      <PropertyRef Name="TelephoneNumberZakazchika" />
+      <PropertyRef Name="Start" />
+      <PropertyRef Name="Finish" />
+      <PropertyRef Name="CountPasazhirov" />
+      <PropertyRef Name="MassaGruza" />
+      <PropertyRef Name="CarType" />
+    </Key>
+    <Property Name="IdZayavki" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FIOzakazchika" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelephoneNumberZakazchika" Type="Int32" Nullable="false" />
+    <Property Name="CarType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Start" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Finish" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountPasazhirov" Type="Int32" Nullable="false" />
+    <Property Name="MassaGruza" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="AvtobazaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="avtorizacia" EntityType="Self.avtorizacia" />
+    <EntitySet Name="CatType" EntityType="Self.CatType" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Zayavka" EntityType="Self.Zayavka" />
+    <EntitySet Name="activeZayavki" EntityType="Self.activeZayavki" />
+  </EntityContainer>
+</Schema>

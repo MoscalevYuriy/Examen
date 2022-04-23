@@ -1,0 +1,26 @@
+﻿<Window x:Class="AVTOBAZA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AVTOBAZA"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF8B00FF" Offset="0.018"/>
+                <GradientStop Color="#FF43027A" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackPanel Margin="106,99,106,66">
+            <Label Content="Логин:" Margin="150,20,0,0" Foreground="White" FontSize="14"/>
+            <TextBox Height="23" TextWrapping="Wrap"  Margin="150,0,150,0"/>
+            <Label Content="Пароль:" Margin="150,10,0,0" Foreground="White" FontSize="14"/>
+            <PasswordBox Height="23" Margin="150,0,150,0"/>
+            <Button Content="Войти" Margin="200,20,200,0" Background="White" BorderBrush="White" Foreground="#FF5E01AB" Click="Button_Click"/>
+            <Button Content="Войти как заказчик" Margin="200,20,200,0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="Button_Click_1"/>
+
+        </StackPanel>
+    </Grid>
+</Window>
